@@ -1,4 +1,11 @@
+"use client"
+
+import Navbar from '@/components/Navbar'
 import './globals.css'
+import { ThemeProvider } from 'next-themes'
+// react-hot-toast is a toast notification library
+
+
 
 export default function RootLayout({ children }) {
   return (
@@ -8,7 +15,13 @@ export default function RootLayout({ children }) {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <ThemeProvider enableSystem={true} attribute="class">
+          <Navbar />
+          {children}
+
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

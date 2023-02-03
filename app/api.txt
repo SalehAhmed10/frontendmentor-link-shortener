@@ -1,0 +1,61 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+
+export default function Home() {
+  // fetch data async await from https://api.shrtco.de/v2/shorten?url=example.org/very/long/link.html and add to state array every time form is submitted then map over array to display data 
+  const [data, setData] = useState([]);
+  const [url, setUrl] = useState("");
+  const [shortUrl, setShortUrl] = useState("");
+  const [error, setError] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(
+        // `https://api.shrtco.de/v2/shorten?url=${url}`
+        `https://api.shrtco.de/v2/shorten?url=${url}`
+      );
+      const data = await res.json();
+      setData((prev) => [...prev, data]);
+      setUrl("");
+      setError(false);
+      console.log(data);
+    } catch (error) {
+      setError(true);
+    }
+  };
+
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
+
+      {
+        data && data.map((item) => {
+          return (
+            <div key={item.result.code}>
+              <p>{item.result.original_link}</p>
+              <p>{item.result.full_short_link}</p>
+            </div>
+          );
+        }
+        )
+      }
+
+
+    </div>
+  );
+
+
+
+}
