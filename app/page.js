@@ -1,5 +1,7 @@
 "use client";
 
+import Features from '@/components/Fetures';
+import FooterCta from '@/components/FooterCta';
 import HeroSection from '@/components/HeroSection'
 import InputPanel from '@/components/InputPanel'
 import ShortenResults from '@/components/ShortenResults'
@@ -12,11 +14,19 @@ function Home() {
 
 
   return (
-    <main className='mx-auto max-w-3xl px-4 sm:px-6 md:max-w-5xl'>
+    <main className='mx-auto  '>
 
-      <HeroSection inputRef={inputRef} />
+      <div className='mx-auto max-w-3xl  md:max-w-5xl px-4 sm:px-6'>
+        <HeroSection inputRef={inputRef} />
+
+      </div>
       <InputPanel inputRef={inputRef} />
       {/* <ShortenResults /> */}
+
+
+      <Features />
+
+      <FooterCta inputRef={inputRef} />
     </main>
   )
 }

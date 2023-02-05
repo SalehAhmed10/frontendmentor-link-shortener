@@ -61,7 +61,7 @@ const InputPanel = ({ inputRef }) => {
 
     return (
         <>
-            <section>
+            <section className='mx-auto max-w-3xl md:max-w-5xl '>
 
                 <div className="py-10 px-10 bg-[url('/assets/hero-pattern.svg')] bg-[#3a3053] rounded-lg">
                     {/* // form with input and button flex input width 75% and button 25% */}
@@ -108,11 +108,19 @@ const InputPanel = ({ inputRef }) => {
 
 
                 </div>
+
+                {/* <div className='overflow-y-scroll max-h-[30vh] mt-5 overflow-clip'>
+                    <InputResults data={data} loading={loading} setLoading={setLoading} />
+                </div> */}
+
+                <div aria-live={data.length !== 0 ? "polite" : "off"} className="flex flex-col gap-5 mt-5">
+                    {data.length !== 0 &&
+                        data.map((link) => (
+                            <InputResults key={data.indexOf(data)} data={link} />
+                        ))}
+                </div>
             </section>
 
-            <div>
-                <InputResults data={data} loading={loading} setLoading={setLoading} />
-            </div>
         </>
     )
 }

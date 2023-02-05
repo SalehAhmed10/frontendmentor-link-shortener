@@ -8,6 +8,8 @@ import { RiMoonFill, RiSunLine } from "react-icons/ri"
 import { IoMdMenu, IoMdClose } from "react-icons/io"
 import Image from "next/image"
 import Logo from "@/public/assets/logo.svg"
+import DarkLogo from "@/public/assets/logo-dark.svg"
+
 
 
 
@@ -17,13 +19,10 @@ const NAV_ITEMS = [
         page: "home",
     },
     {
-        label: "About",
-        page: "about",
+        label: "Features",
+        page: "features",
     },
-    {
-        label: "Projects",
-        page: "projects",
-    },
+
 ]
 
 export default function Navbar() {
@@ -34,19 +33,32 @@ export default function Navbar() {
     return (
         <>
 
-            <header className="navbar w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow bg-white dark:bg-[#121212] dark:border-b dark:border-stone-600">
+            <header className="navbar w-full mx-auto px-4 sm:px-20 lg:px-20 xl:px-36 fixed top-0 z-50 shadow bg-white dark:bg-[#121212] dark:border-b dark:border-stone-600">
                 <div className="justify-between md:items-center md:flex">
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
                             <Link to="home">
                                 <div className="container flex items-center space-x-2">
-                                    <Image
-                                        src={Logo}
-                                        alt="logo"
-                                        width={100}
-                                        height={100}
-                                        className="rounded-full"
-                                    />
+                                    {
+                                        currentTheme === "dark" ? (
+                                            <Image
+                                                src={DarkLogo}
+                                                alt="logo"
+                                                width={100}
+                                                height={100}
+                                                className="rounded-full"
+                                            />
+                                        ) : (
+                                            <Image
+                                                src={Logo}
+                                                alt="logo"
+                                                width={100}
+                                                height={100}
+                                                className="rounded-full"
+                                            />
+                                        )
+                                    }
+
 
                                 </div>
                             </Link>
@@ -66,7 +78,7 @@ export default function Navbar() {
                             className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
                                 }`}
                         >
-                            <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                            <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 text-center">
                                 {NAV_ITEMS.map((item, idx) => {
                                     return (
                                         <Link

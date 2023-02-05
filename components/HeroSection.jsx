@@ -9,7 +9,8 @@ import HeroImage from '@/public/assets/hero-image.svg'
 const HeroSection = ({ inputRef }) => {
     return (
         <section id="home">
-            <div className="flex flex-col-reverse md:flex text-center items-center justify-center animate-fadeIn animation-delay-2 my-5 py-8 sm:py-32 md:py-30 md:flex-row md:space-x-4 md:text-left">
+
+            <div className="flex flex-col-reverse md:flex text-center items-center justify-center animate-fadeIn animation-delay-2 my-5 py-8 sm:py-52 md:py-50 md:flex-row md:space-x-4 md:text-left sm:mt-10 md:mt-0">
 
                 <div className="md:mt-2 md:w-[50vw] py-5">
                     <h1 className="text-4xl font-bold mt-6 md:mt-0 md:text-6xl">More than just <br /> Shorter Link</h1>
@@ -37,7 +38,7 @@ const HeroSection = ({ inputRef }) => {
                         alt=""
                         width={325}
                         height={325}
-                        className=""
+                        className="w-full "
                     />
                 </div>
 

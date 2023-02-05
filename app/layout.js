@@ -3,6 +3,7 @@
 import Navbar from '@/components/Navbar'
 import './globals.css'
 import { ThemeProvider } from 'next-themes'
+import Footer from '@/components/Footer'
 // react-hot-toast is a toast notification library
 
 
@@ -19,7 +20,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider enableSystem={true} attribute="class">
           <Navbar />
           {children}
-
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
